@@ -1,6 +1,7 @@
 $(document).ready(function(){
     
-    var quizNum = 1;
+    var quizNum = 1,
+        audioNum = 1;
     
     //Click Start Button
     $('.start-btn').click(function(){
@@ -19,6 +20,8 @@ $(document).ready(function(){
     //Click on answerbox to reveal right answer and move to the next
     
     $('.answer-box').click(function(){
+        
+        //change answer boxes and show correct answer
         console.log(quizNum);
         $('.group-' + quizNum + ' .correct').addClass('correct-reveal');
         $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0);
@@ -28,8 +31,12 @@ $(document).ready(function(){
             console.log(quizNum);
         });
         
-        $('.audio-1').hide();
-        $('.audio-2').css('display', 'inline');
+        //change sound
+        $('.audio-' + audioNum).hide();
+        audioNum++
+        $('.audio-' + audioNum).css('display', 'inline');
+        
+        $('.num-change').html('<span class="num-change>' + quizNum + '</span>');
     });
     
     
