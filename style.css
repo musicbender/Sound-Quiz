@@ -36,6 +36,7 @@ h1 {
     font-size: 1em;
     font-family: Raleway;
     vertical-align: middle;
+    display: none;
 }
 
 .sound-number {
@@ -58,6 +59,7 @@ h1 {
     width: 50%;
     height: 66px;
     background-color: black;
+    display: none;
 }
 
 audio {
@@ -74,7 +76,7 @@ audio {
     margin: 30px auto;
     width: 50%;
     height: 300px;
-    /*border: 1px solid red;*/
+    display: none;
 }
 
 .container {
@@ -128,5 +130,8 @@ footer {
 footer img {
     width: 100%;
     opacity: 0.4;
+    position: absolute;
+    top: 620px;
+    left: 0;
 }
 
