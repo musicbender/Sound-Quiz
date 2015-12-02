@@ -13,6 +13,17 @@ $(document).ready(function(){
         });
     });
     
+    $('.answer-box').mouseenter(function(){
+        $(this).addClass('answer-box-hover');
+    });
+    
+    $('.answer-box').mouseleave(function(){
+        $(this).removeClass('answer-box-hover');
+    });
+    
+    
+    
+    
     
     
     

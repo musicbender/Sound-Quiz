@@ -160,6 +160,13 @@ h3 {
     font-family: Raleway;
 }
 
+.answer-box-hover {
+    background-color: black;
+    color: #FFEF00;
+    transition: background-color 0.75s, color 0.75s;
+    cursor: pointer;
+}
+
 
 /*Footer Section*/
 
