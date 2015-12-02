@@ -20,7 +20,6 @@ $(document).ready(function(){
     
     $('.answer-box').click(function(){
         console.log(quizNum);
-        
         $('.group-' + quizNum + ' .correct').addClass('correct-reveal');
         $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0);
         $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000, function(){
@@ -28,6 +27,9 @@ $(document).ready(function(){
             $('.group-' + quizNum).fadeIn(1000);
             console.log(quizNum);
         });
+        
+        $('.audio-1').hide();
+        $('.audio-2').css('display', 'inline');
     });
     
     
