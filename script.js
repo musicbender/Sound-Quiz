@@ -1,7 +1,8 @@
 $(document).ready(function(){
     
     var quizNum = 1,
-        audioNum = 1;
+        audioNum = 1,
+        score = 0;
     
     //Click Start Button
     $('.start-btn').click(function(){
@@ -18,25 +19,33 @@ $(document).ready(function(){
     });
     
     //Click on answerbox to reveal right answer and move to the next
-    
     $('.answer-box').click(function(){
         
-        //change answer boxes and show correct answer
-        console.log(quizNum);
-        $('.group-' + quizNum + ' .correct').addClass('correct-reveal');
-        $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0);
-        $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000, function(){
-            quizNum++;
-            $('.group-' + quizNum).fadeIn(1000);
-            console.log(quizNum);
-        });
+        //fade answer boxes, show correct answer
+        $('.group-' + quizNum + ' .correct').addClass('correct-reveal'); //reveal correct answer
+        $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0); //fade out wrong ones
+        
+        //fade out old group, fade in new group
+        $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000);//hide old group
+        quizNum++;
+        $('.group-' + quizNum).fadeIn(1000); //show new group
         
         //change sound
         $('.audio-' + audioNum).hide();
         audioNum++
         $('.audio-' + audioNum).css('display', 'inline');
         
-        $('.num-change').html('<span class="num-change>' + quizNum + '</span>');
+        //Change quiz number at progress bar
+        var quizString = quizNum.toString(); //change number to string
+        $('.num-change').text(quizString);
+        
+        //Change score at progress bar
+        if ($(this).hasClass('correct')){
+            
+        }
+        else {
+            
+        }
     });
     
     
