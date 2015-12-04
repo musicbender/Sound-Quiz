@@ -28,16 +28,22 @@ $(document).ready(function(){
         //fade out old group, fade in new group
         $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000);//hide old group
         quizNum++;
-        $('.group-' + quizNum).delay(2000).fadeIn(1000); //show new group
+        $('.group-' + quizNum).delay(2000).fadeIn(1000, function(){ //show new group
+            
+            //change quiz number at progress bar
+            if (quizNum <=10){
+                var quizString = quizNum.toString();
+                $('.num-change').text(quizString);
+            }
+            else {
+                return;
+            }  
+        });
         
         //change sound
         $('.audio-' + audioNum).hide();
         audioNum++
         $('.audio-' + audioNum).css('display', 'inline');
-        
-        //Change quiz number at progress bar
-        var quizString = quizNum.toString(); //change number to string
-        $('.num-change').text(quizString);
         
         //Change score at progress bar
         if ($(this).hasClass('correct')){
