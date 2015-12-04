@@ -41,10 +41,12 @@ $(document).ready(function(){
         
         //Change score at progress bar
         if ($(this).hasClass('correct')){
-            
+            score++;
+            var scoreString = score.toString();
+            $('.score').text(scoreString);
         }
         else {
-            
+            return;
         }
     });
     
