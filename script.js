@@ -28,7 +28,7 @@ $(document).ready(function(){
         //fade out old group, fade in new group
         $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000);//hide old group
         quizNum++;
-        $('.group-' + quizNum).fadeIn(1000); //show new group
+        $('.group-' + quizNum).delay(2000).fadeIn(1000); //show new group
         
         //change sound
         $('.audio-' + audioNum).hide();
