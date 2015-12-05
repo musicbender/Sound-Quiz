@@ -29,9 +29,27 @@ $(document).ready(function(){
         $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000);//hide old group
         quizNum++;
         
-        if (quizNum == 11){
+        if (quizNum == 11){ //if the game is over
             $('.audio-section').delay(2000).fadeOut(1000); //hide audio
-            $('.sound-number').delay(2000).fadeOut(1000); //hide quiz number
+            $('.sound-number').fadeOut(1000); //hide quiz number
+            
+            //score animation
+            $('.score-section').addClass('score-end').delay(1000).animate({
+            left: '-50px',
+            top: '100px',
+            width: '500px',
+            height: '150px',
+            fontSize: '3em',
+            color: 'white'    
+        }, "slow");
+            
+            $('body').animate({backgroundColor: 'green'}, 3000);
+            $('h1').animate({color: "green"}, 3000);
+            
+            
+        
+            $('.audio-section').hide();
+            $('.answers').hide();   
         }
         else {
             $('.group-' + quizNum).delay(2000).fadeIn(1000, function(){ //show new group
@@ -63,20 +81,7 @@ $(document).ready(function(){
         }
     });
     
-    $('.score-section').click(function(){
-        $('.progress').css('margin', 'auto');
-        $('.score-section').addClass('score-end').delay(1000).animate({
-            left: '-50px',
-            top: '100px',
-            width: '500px',
-            height: '150px',
-            fontSize: '2.75em'
-        }, "slow");
-        
-        
-        $('.audio-section').hide();
-        $('.answers').hide();
-    });
+    //$('.score-section').click(function(){});    //for testing end animation
     
     
     //Hover effect for Answer-Box
