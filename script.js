@@ -20,7 +20,7 @@ $(document).ready(function(){
     
     //Click on answerbox to reveal right answer and move to the next
     $('.answer-box').click(function(){
-        
+        console.log('START: ' + quizNum);
         //fade answer boxes, show correct answer
         $('.group-' + quizNum + ' .correct').addClass('correct-reveal'); //reveal correct answer
         $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0); //fade out wrong ones
@@ -28,22 +28,29 @@ $(document).ready(function(){
         //fade out old group, fade in new group
         $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000);//hide old group
         quizNum++;
-        $('.group-' + quizNum).delay(2000).fadeIn(1000, function(){ //show new group
-            
-            //change quiz number at progress bar
-            if (quizNum <=10){
-                var quizString = quizNum.toString();
-                $('.num-change').text(quizString);
-            }
-            else {
-                return;
-            }  
-        });
         
-        //change sound
-        $('.audio-' + audioNum).hide();
-        audioNum++
-        $('.audio-' + audioNum).css('display', 'inline');
+        if (quizNum == 11){
+            $('.audio-section').delay(2000).fadeOut(1000); //hide audio
+            $('.sound-number').delay(2000).fadeOut(1000); //hide quiz number
+        }
+        else {
+            $('.group-' + quizNum).delay(2000).fadeIn(1000, function(){ //show new group
+                
+                //change quiz number at progress bar
+                if (quizNum <=10){
+                    var quizString = quizNum.toString();
+                    $('.num-change').text(quizString);
+                }
+                else {
+                    return;
+                }  
+            });  
+            
+            //change sound
+            $('.audio-' + audioNum).hide();
+            audioNum++
+            $('.audio-' + audioNum).css('display', 'inline');
+        }
         
         //Change score at progress bar
         if ($(this).hasClass('correct')){
@@ -54,6 +61,21 @@ $(document).ready(function(){
         else {
             return;
         }
+    });
+    
+    $('.score-section').click(function(){
+        $('.progress').css('margin', 'auto');
+        $('.score-section').addClass('score-end').delay(1000).animate({
+            left: '-50px',
+            top: '100px',
+            width: '500px',
+            height: '150px',
+            fontSize: '2.75em'
+        }, "slow");
+        
+        
+        $('.audio-section').hide();
+        $('.answers').hide();
     });
     
     
