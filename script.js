@@ -20,7 +20,7 @@ $(document).ready(function(){
     
     //Click on answerbox to reveal right answer and move to the next
     $('.answer-box').click(function(){
-        console.log('START: ' + quizNum);
+        
         //fade answer boxes, show correct answer
         $('.group-' + quizNum + ' .correct').addClass('correct-reveal'); //reveal correct answer
         $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0); //fade out wrong ones
@@ -64,7 +64,8 @@ $(document).ready(function(){
                 }  
             });  
             
-            //change sound
+            //hide & mute old sound and show new sound
+            $('.audio-' + audioNum).prop("muted", true);
             $('.audio-' + audioNum).hide();
             audioNum++
             $('.audio-' + audioNum).css('display', 'inline');
