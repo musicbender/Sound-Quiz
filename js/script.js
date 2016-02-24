@@ -24,7 +24,7 @@ $(document).ready(function() {
         $('.group-' + quizNum + ' .wrong').fadeTo(1000, 0); //fade out wrong ones
         
         //fade out old group, fade in new group
-        $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000);//hide old group
+        $('.group-' + quizNum).delay(1000).fadeOut(1000).delay(1000); //hide old group
         quizNum++;
         
         if (quizNum == 11) { //if the game is over
